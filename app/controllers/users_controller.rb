@@ -7,15 +7,15 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Signup success!"
-      redirect_to top_page_url
+      redirect_to top_pages_url
     else
-      redirect_to top_page_url
+      redirect_to top_pages_url
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :password_confirmation)
+    params.require(:user).permit(:email,:password, :password_confirmation)
   end
 end
